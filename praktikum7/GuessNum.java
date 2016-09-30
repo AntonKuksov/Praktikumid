@@ -12,7 +12,7 @@ public class GuessNum {
 
 		while (true) {
 
-			System.out.println("Try");
+			System.out.println("Try!");
 			int guess = TextIO.getlnInt();
 			Kontroll(num1, guess);
 			if (num1 == guess) {
