@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import lib.TextIO;
 
-public class Kummesona {
+public class KummeSona {
 
 	public static void main(String[] args) {
 
