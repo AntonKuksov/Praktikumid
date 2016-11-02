@@ -1,0 +1,620 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0068)http://study-java.ru/uroki-java/urok-12-mnogomerny-e-massivy-v-java/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru-RU"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="./java1_files/300lo.json"></script><script type="text/javascript" src="./java1_files/_ate.track.config_resp"></script>
+<link rel="stylesheet" href="./java1_files/css" type="text/css" media="all">
+
+<meta name="description" content="Статья Урок J-12. Многомерные массивы в Java.">
+<meta name="keywords" content="">
+<meta name="robots" content="index, follow">
+
+<title>         Урок J-12. Многомерные массивы в Java. | Java для начинающих | 
+       Изучаем java программирование 
+</title>
+<link rel="stylesheet" href="./java1_files/screen.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="./java1_files/print.css" type="text/css" media="print">
+<!--[if IE]><link rel="stylesheet" href="http://study-java.ru/wp-content/themes/ModernTech/css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<link rel="stylesheet" href="./java1_files/style.css" type="text/css" media="screen">
+<!--[if IE 6]>
+	<script src="http://study-java.ru/wp-content/themes/ModernTech/js/pngfix.js"></script>
+<![endif]--> 
+<link rel="alternate" type="application/rss+xml" title="RSS-лента Java для начинающих" href="http://study-java.ru/feed/">
+<link rel="alternate" type="application/atom+xml" title="Java для начинающих Atom Feed" href="http://study-java.ru/feed/atom/">
+<link rel="pingback" href="http://study-java.ru/xmlrpc.php">
+
+<script id="facebook-jssdk" src="./java1_files/all.js.Без названия"></script><script type="text/javascript" async="" src="./java1_files/watch.js.Без названия"></script><script async="" src="./java1_files/analytics.js.Без названия"></script><script src="./java1_files/mootools-1.2.5-core-yc.js.Без названия" type="text/javascript"></script>
+<link rel="stylesheet" href="./java1_files/MenuMatic.css" type="text/css" media="screen" charset="utf-8">
+<!--[if lt IE 7]>
+	<link rel="stylesheet" href="http://study-java.ru/wp-content/themes/ModernTech/menu/MenuMatic-ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+<!-- Load the MenuMatic Class -->
+<script src="./java1_files/MenuMatic_0.68.3.js.Без названия" type="text/javascript" charset="utf-8"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44037853-1', 'study-java.ru');
+  ga('send', 'pageview');
+
+</script>
+<link rel="alternate" type="application/rss+xml" title="Java для начинающих » Лента комментариев к «Урок J-12. Многомерные массивы в Java.»" href="http://study-java.ru/uroki-java/urok-12-mnogomerny-e-massivy-v-java/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/study-java.ru\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4.5"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;return g&&g.fillText?(g.textBaseline="top",g.font="600 32px Arial","flag"===a?(g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3):"diversity"===a?(g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e):("simple"===a?g.fillText(h(55357,56835),0,0):g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag"),unicode8:d("unicode8"),diversity:d("diversity")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag&&c.supports.unicode8&&c.supports.diversity||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./java1_files/wp-emoji-release.min.js.Без названия" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="page-list-style-css" href="./java1_files/page-list.css" type="text/css" media="all">
+<link rel="https://api.w.org/" href="http://study-java.ru/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://study-java.ru/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://study-java.ru/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Урок J-11. Сортировка массива в Java." href="http://study-java.ru/uroki-java/urok-11-sortirovka-massiva/">
+<link rel="next" title="Урок JA-1. Установка Android Studio." href="http://study-java.ru/java-dlya-android/urok-1-ustanovka-android-studio/">
+<link rel="canonical" href="http://study-java.ru/uroki-java/urok-12-mnogomerny-e-massivy-v-java/">
+<link rel="shortlink" href="http://study-java.ru/?p=576">
+<link rel="alternate" type="application/json+oembed" href="http://study-java.ru/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fstudy-java.ru%2Furoki-java%2Furok-12-mnogomerny-e-massivy-v-java%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://study-java.ru/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fstudy-java.ru%2Furoki-java%2Furok-12-mnogomerny-e-massivy-v-java%2F&amp;format=xml">
+<style type="text/css">.at-icon{fill:#fff;border:0}.at-icon-wrapper{display:inline-block;overflow:hidden}a .at-icon-wrapper{cursor:pointer}.at-rounded,.at-rounded-element .at-icon-wrapper{border-radius:12%}.at-circular,.at-circular-element .at-icon-wrapper{border-radius:50%}.addthis_32x32_style .at-icon{width:2pc;height:2pc}.addthis_24x24_style .at-icon{width:24px;height:24px}.addthis_20x20_style .at-icon{width:20px;height:20px}.addthis_16x16_style .at-icon{width:1pc;height:1pc}#at16lb{display:none;position:absolute;top:0;left:0;width:100%;height:100%;z-index:1001;background-color:#000;opacity:.001}#at16pc,#at16pi,#at16pib,#at_complete,#at_error,#at_share,#at_success{position:static!important}.at15dn{display:none}.at15a{border:0;height:0;margin:0;padding:0;width:230px}#at15s,#at16nms,#at16p,#at16p form input,#at16p label,#at16p textarea,#at16recap,#at16sas,#at_msg,#at_share .at_item{font-family:arial,helvetica,tahoma,verdana,sans-serif!important;font-size:9pt!important;outline-style:none;outline-width:0;line-height:1em}* html #at15s.mmborder{position:absolute!important}#at15s.mmborder{position:fixed!important;width:250px!important}#at15s{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);float:none;line-height:1em;margin:0;overflow:visible;padding:5px;text-align:left;position:absolute}#at15s a,#at15s span{outline:0;direction:ltr;text-transform:none}#at15s .at-label{margin-left:5px}#at15s .at-icon-wrapper,#at16ps .at-icon-wrapper{width:1pc;height:1pc;vertical-align:middle}#at15s .at-icon,#at16ps .at-icon{width:1pc;height:1pc}.at4-icon{display:inline-block;background-repeat:no-repeat;background-position:top left;margin:0;overflow:hidden;cursor:pointer}.addthis_16x16_style .at4-icon,.addthis_default_style .at4-icon,.at4-icon,.at-16x16{width:1pc;height:1pc;line-height:1pc;background-size:1pc!important}.addthis_32x32_style .at4-icon,.at-32x32{width:2pc;height:2pc;line-height:2pc;background-size:2pc!important}.addthis_24x24_style .at4-icon,.at-24x24{width:24px;height:24px;line-height:24px;background-size:24px!important}.addthis_20x20_style .at4-icon,.at-20x20{width:20px;height:20px;line-height:20px;background-size:20px!important}.at4-icon.circular,.circular .at4-icon,.circular.aticon{border-radius:50%}.at4-icon.rounded,.rounded .at4-icon{border-radius:4px}.at4-icon-left{float:left}#at15s .at4-icon{text-indent:20px;padding:0;overflow:visible;white-space:nowrap;background-size:1pc;width:1pc;height:1pc;background-position:top left;display:inline-block;line-height:1pc}.addthis_vertical_style .at4-icon,.at4-follow-container .at4-icon,.sortable-list-container .at4-icon{margin-right:5px}html>body #at15s{width:250px!important}#at15s.atm{background:none!important;padding:0!important;width:10pc!important}#at15s.atiemode2{width:252px!important}#at15s_inner{background:#fff;border:1px solid #fff;margin:0}#at15s_head{position:relative;background:#f2f2f2;padding:4px;cursor:default;border-bottom:1px solid #e5e5e5}.at15s_head_success{background:#cafd99!important;border-bottom:1px solid #a9d582!important}.at15s_head_success a,.at15s_head_success span{color:#000!important;text-decoration:none}#at15s_brand,#at15sptx,#at16_brand{position:absolute}#at15s_brand{top:4px;right:4px}.at15s_brandx{right:20px!important}a#at15sptx{top:4px;right:4px;text-decoration:none;color:#4c4c4c;font-weight:700}#at15s.atiemode2 a#at15sptx{right:8px}#at15sptx:hover{text-decoration:underline}#at16_brand{top:5px;right:30px;cursor:default}#at_hover{padding:4px}#at_hover .at_item,#at_share .at_item{background:#fff!important;float:left!important;color:#4c4c4c!important}#at_share .at_item .at-icon-wrapper{margin-right:5px}#at_hover .at_bold{font-weight:700;color:#000!important}#at16nms,#at16sas{padding:4px 5px}#at16nms{display:none}#at16sas{clear:left;padding-top:1pc;padding-bottom:1pc}#at_hover .at_item{width:7pc!important;padding:2px 3px!important;margin:1px;text-decoration:none!important}#at_hover .at_item.atiemode2{width:114px!important}#at_hover .at_item.athov,#at_hover .at_item:focus,#at_hover .at_item:hover{margin:0!important}#at16ps .at_item:focus,#at_hover .at_item.athov,#at_hover .at_item:focus,#at_hover .at_item:hover,#at_share .at_item.athov,#at_share .at_item:hover{background:#f2f2f2!important;border:1px solid #e5e5e5;color:#000!important;text-decoration:none}.ipad #at_hover .at_item:focus{background:#fff!important;border:1px solid #fff}#at_sending{top:130px;left:110px;position:absolute;text-align:center}#at_sending img{padding:10px}.at15t{display:block!important;height:1pc!important;line-height:1pc!important;padding-left:20px!important;background-position:0 0;text-align:left}.addthis_button,.at15t{cursor:pointer}.addthis_toolbox a.at300b,.addthis_toolbox a.at300m{width:auto}.addthis_toolbox a{margin-bottom:5px;line-height:initial}.addthis_toolbox.addthis_vertical_style{width:200px}.addthis_toolbox.addthis_close_style .addthis_button_google_plusone{width:65px;overflow:hidden}.addthis_toolbox.addthis_close_style .addthis_button_facebook_like{width:85px;overflow:hidden}.addthis_toolbox.addthis_close_style .addthis_button_tweet{width:62px;overflow:hidden}.addthis_button_facebook_like .fb_iframe_widget{line-height:100%}.addthis_button_facebook_like iframe.fb_iframe_widget_lift{max-width:none}.addthis_toolbox a.addthis_button_counter,.addthis_toolbox a.addthis_button_facebook_like,.addthis_toolbox a.addthis_button_facebook_send,.addthis_toolbox a.addthis_button_facebook_share,.addthis_toolbox a.addthis_button_foursquare,.addthis_toolbox a.addthis_button_google_plusone,.addthis_toolbox a.addthis_button_linkedin_counter,.addthis_toolbox a.addthis_button_pinterest_pinit,.addthis_toolbox a.addthis_button_stumbleupon_badge,.addthis_toolbox a.addthis_button_tweet{display:inline-block}.at-share-tbx-element .google_plusone_iframe_widget>span>div{vertical-align:top!important}.addthis_toolbox span.addthis_follow_label{display:none}.addthis_toolbox.addthis_vertical_style span.addthis_follow_label{display:block;white-space:nowrap}.addthis_toolbox.addthis_vertical_style a{display:block}.addthis_toolbox.addthis_vertical_style.addthis_32x32_style a{line-height:2pc;height:2pc}.addthis_toolbox.addthis_vertical_style .at300bs{margin-right:4px;float:left}.addthis_toolbox.addthis_20x20_style span{line-height:20px;*height:20px}.addthis_toolbox.addthis_32x32_style span{line-height:2pc;*height:2pc}.addthis_toolbox.addthis_pill_combo_style .addthis_button_compact .at15t_compact,.addthis_toolbox.addthis_pill_combo_style a{float:left}.addthis_toolbox.addthis_pill_combo_style a.addthis_button_tweet{margin-top:-2px}.addthis_toolbox.addthis_pill_combo_style .addthis_button_compact .at15t_compact{margin-right:4px}.addthis_default_style .addthis_separator{margin:0 5px;display:inline}div.atclear{clear:both}.addthis_default_style .addthis_separator,.addthis_default_style .at4-icon,.addthis_default_style .at300b,.addthis_default_style .at300bo,.addthis_default_style .at300bs,.addthis_default_style .at300m{float:left}.at300b img,.at300bo img{border:0}a.at300b .at4-icon,a.at300m .at4-icon{display:block}.addthis_default_style .at300b,.addthis_default_style .at300bo,.addthis_default_style .at300m{padding:0 2px}.at300b,.at300bo,.at300bs,.at300m{cursor:pointer}.addthis_button_facebook_like.at300b:hover,.addthis_button_facebook_like.at300bs:hover,.addthis_button_facebook_send.at300b:hover,.addthis_button_facebook_send.at300bs:hover{opacity:1;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";filter:alpha(opacity=100)}.addthis_20x20_style .at15t,.addthis_20x20_style .at300bs,.addthis_20x20_style .dummy .at300bs{overflow:hidden;display:block;height:20px!important;width:20px!important;line-height:20px!important}.addthis_32x32_style .at15t,.addthis_32x32_style .at300bs,.addthis_32x32_style .dummy .at300bs{overflow:hidden;display:block;height:2pc!important;width:2pc!important;line-height:2pc!important}.at300bs{background-position:0 0}.at16nc,.at300bs{overflow:hidden;display:block;height:1pc;width:1pc;line-height:1pc!important}.at16t{padding-left:20px!important;width:auto;cursor:pointer;text-align:left;overflow:visible!important}#at_feed{display:none;padding:10px;height:300px}#at_feed span{margin-bottom:10px;font-size:9pt}#at_feed div{width:102px!important;height:26px!important;line-height:26px!important;float:left!important;margin-right:68px}#at_feed div.at_litem{margin-right:0}#at_feed a{margin:10px 0;height:17px;line-height:17px}#at_feed.atused .fbtn{background:url(//s7.addthis.com/static/r05/feed00.gif) no-repeat;float:left;width:102px;cursor:pointer;text-indent:-9000px}#at_feed .fbtn.bloglines{background-position:0 0!important;width:94px;height:20px!important;line-height:20px!important;margin-top:8px!important}#at_feed .fbtn.yahoo{background-position:0 -20px!important}#at_feed .fbtn.newsgator,.fbtn.newsgator-on{background-position:0 -37px!important}#at_feed .fbtn.technorati{background-position:0 -71px!important}#at_feed .fbtn.netvibes{background-position:0 -88px!important}#at_feed .fbtn.pageflakes{background-position:0 -141px!important}#at_feed .fbtn.feedreader{background-position:0 -172px!important}#at_feed .fbtn.newsisfree{background-position:0 -207px!important}#at_feed .fbtn.google{background-position:0 -54px!important;width:78pt}#at_feed .fbtn.winlive{background-position:0 -105px!important;width:75pt;height:19px!important;line-height:19px;margin-top:9px!important}#at_feed .fbtn.mymsn{background-position:0 -158px;width:71px;height:14px!important;line-height:14px!important;margin-top:9pt!important}#at_feed .fbtn.aol{background-position:0 -189px;width:92px;height:18px!important;line-height:18px!important}.addthis_default_style .at15t_compact,.addthis_default_style .at15t_expanded{margin-right:4px}#at16clb{font-size:16pt;font-family:verdana bold,verdana,arial,sans-serif}#at_share .at_item{width:123px!important;padding:4px;margin-right:2px;border:1px solid #fff}#at16pm{background:#fff;width:298px;height:380px;text-align:left;border-right:1px solid #ccc;position:static}#at16pcc,#at16pccImg{position:fixed;top:0;left:0;width:100%;margin:0 auto;font-size:10px!important;color:#4c4c4c;padding:0;z-index:10000001;overflow:visible}#at16pccImg{height:100%}#at16abifc{overflow:hidden;margin:0;top:10px;left:10px;height:355px;width:492px;position:absolute;border:0}#at16abifc iframe{border:0;position:absolute;height:380px;width:516px;top:-10px;left:-10px}* html div#at16abifc.atiemode2{height:374px;width:482px}* html #at16abifc iframe{height:23pc;left:-10px;top:-10px;overflow:hidden}#at16p{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);z-index:10000001;position:absolute;top:50%;left:50%;width:300px;padding:10px;margin:0 auto;margin-top:-185px;margin-left:-155px;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#5e5e5e}#at_share{margin:0;padding:0}#at16ps{overflow-y:scroll;height:19pc;padding:5px}a#at16pit{position:absolute;top:37px;right:10px;display:block;background:url(data:image/gif;base64,R0lGODlhEAAUAKIFAKqqquHh4cLCwszMzP///////wAAAAAAACH5BAEAAAUALAAAAAAQABQAAAMtOLqsAqWQSSsN0OoLthfeNoTaSFbmOaUqe7okHMoeLaqUXeITiGM/SGM4eEQSADs=) no-repeat;width:1pc;height:20px;line-height:19px;margin-right:-17px;text-align:center;overflow:hidden;color:#36b}#at16pi{background:#e5e5e5;text-align:left;border:1px solid #ccc;border-bottom:0}#at16pi a{text-decoration:none;color:#36b}#at16p #at16abc{margin-left:2px!important}#at16pi a:hover{text-decoration:underline}#at16pt{position:relative;background:#f2f2f2;height:13px;padding:5px 10px}#at16pt a,#at16pt h4{font-weight:700}#at16pt h4{display:inline;margin:0;padding:0;font-size:9pt;color:#4c4c4c;cursor:default}#at16pt a{position:absolute;top:5px;right:10px;color:#4c4c4c;text-decoration:none;padding:2px}#at15sptx:focus,#at16pt a:focus{outline:thin dotted}#at16pc form{margin:0}#at16pc form label{display:block;font-size:11px;font-weight:700;padding-bottom:4px;float:none;text-align:left}#at16pc form label span{font-weight:400;color:#4c4c4c;display:inline}#at16pc textarea{height:3pc}#at16pc form input:focus,#at16pc textarea:focus{background:ivory;color:#333}#at16p .atbtn,#at16recap .atbtn{background:#fff;border:1px solid #b5b5b5;width:60px!important;padding:2px 4px;margin:0;margin-right:2px!important;font-size:11px!important;font-weight:700;color:#333;cursor:pointer}#at16p .atbtn:focus,#at16p .atbtn:hover,#at16recap .atbtn:focus,#at16recap .atbtn:hover{border-color:#444;color:#06c}#at16p .atrse,#at16recap .atrse{font-weight:400!important;color:#666;margin-left:2px!important}#atsb .atbtn{width:78px!important;margin:0!important}#at16pc{height:343px!important;font-size:11px;text-align:left;color:#4c4c4c}#at16psf{position:relative;background:#f2f2f2 url(data:image/gif;base64,R0lGODlhGQEVAMQYAGZmZuDg4Ozs7MjIyMzMzPj4+LOzs3BwcMbGxsvLy5+fn/X19djY2IODg+bm5paWlnl5eeLi4oyMjKmpqdXV1dvb28/Pz////////wAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABgALAAAAAAZARUAAAX/ICaOGJFYaKqubOu+cCzPdG3feK7vPJwQpOBoEChcjsikcslsOp/QqHRKrVqv2Kx2Gy0EBkKRgMEtm8/otHrNTjMEQYGjTa/b7/h82gEfVfSAgYKDhGcVQ0sLBhAAEAYLhZGSk5RqYBgBSgsNAA0GnA2QlaOkpaZHASVGSQYACEgIABOntLW2eAUmSxASShIHt8HCw1snSwAGSq3EzM3OSyhLBw9KD8DP2Nm30UoKrrAACtrj5KMWCYmcCgbeAAcR5fHygT+rSQvtAA8A7vDz/wDV5MIUJVa/gAgTZkmFYYAUg70USpz45BKGPwUPiKPIseOhEXI6ihzphE8cMiRTMI58E6ZhEZUwEXqx2LIEAwsUKujcybOnz59AgwodSrSo0aNIkypdyrSpU58ofoQJAQA7) no-repeat center center;border-bottom:1px solid #ccc;height:20px;padding:4px 10px;text-align:center}* html #at16psf input,:first-child+html #at16psf input{padding:0}#at16psf input,#at16psf input:focus{background:#fff;border:none;width:220px;margin:2px 0 0;color:#666;outline-style:none;outline-width:0;padding:2px 0 0;line-height:9pt;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt}#at16pcc .at_error,#at16recap .at_error{background:#f26d7d;border-bottom:1px solid #df5666;padding:5px 10px;color:#fff}#at16pcc #at_success{background:#d0fbda;border-bottom:1px solid #a8e7b7;padding:5px 10px;color:#4c4c4c}#at_complete{font-size:13pt;color:#47731d;text-align:center;padding-top:130px;height:13pc!important;width:472px}.at_baa{display:block;overflow:hidden;outline:0}#at15s #at16pf a{top:1px}#at16pc form #at_send{width:5pc!important}#at16pp{color:#4c4c4c;position:absolute;top:9pt;right:9pt;font-size:11px}#at16pp label{font-size:11px!important}#at16pp .atinp{width:156px}#at16eatdr{position:absolute;background:#fff;border-top:0;max-height:110px;overflow:auto;z-index:500;top:129px;left:21px;width:277px}#at16eatdr a{display:block;overflow:hidden;border-bottom:1px dotted #eee;padding:4px 8px}#at16eatdr a.hover,#at16eatdr a:hover{background:#e0eefa;text-decoration:none;color:#333}#at_pspromo{height:130px;padding-top:10px}#at15psp,#at_pspromo{width:205px;padding-left:5px}#at_testpromo{font-size:9pt;width:220px;display:none}.atm-i #at_pspromo{height:150px}.atm-i #at_pspromo,.atm-i #at_testpromo{width:140px}#at_testpromo input{width:200px}#at_promo .at-promo-content,#at_testpromo .at-promo-content{margin-top:9pt}#at_promo .at-promo-btn,#at_testpromo .at-promo-btn{padding-top:10px}#at_promo h4,#at_testpromo h4{font-family:arial,helvetica,tahoma,verdana,sans-serif;background:0;font-size:14px;font-weight:700;margin:0 0 4px;padding:0;line-height:18px;height:36px}.atm-i #at_promo h4,.atm-i #at_testpromo h4{height:66px}#at_testpromo h4{font-size:13.5px}#at_promo h4 sup{font-size:11px;color:#ee6a44}#at_promo span{display:block}#_atssh{width:1px!important;height:1px!important;border:0!important}.at-promo-single{padding:10px;padding-top:2px;line-height:1.5em}.at-promo-single img{padding:3px}.at-promo-content img{margin-right:5px;margin-bottom:20px;float:left}.atm{width:10pc!important;padding:0;margin:0;line-height:9pt;letter-spacing:normal;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#444;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);padding:4px}.atm-f{text-align:right;border-top:1px solid #ddd;padding:5px 8px}.atm-i{background:#fff;border:1px solid #d5d6d6;padding:0;margin:0;box-shadow:1px 1px 5px rgba(0,0,0,.15)}.atm-s{margin:0!important;padding:0!important}.atm-s a:focus{border:transparent;outline:0;-webkit-transition:none;transition:none}#at_hover.atm-s a,.atm-s a{display:block;text-decoration:none;padding:4px 10px;color:#235dab!important;font-weight:400;font-style:normal;-webkit-transition:none;transition:none}#at_hover.atm-s .at_bold{color:#235dab!important}#at_hover.atm-s a:hover,.atm-s a:hover{background:#2095f0;text-decoration:none;color:#fff!important}#at_hover.atm-s .at_bold{font-weight:700}#at_hover.atm-s a:hover .at_bold{color:#fff!important}.atm-s a .at-label{vertical-align:middle;margin-left:5px;direction:ltr}.atm-i #atic_settings{border:none!important;border-top:1px solid #d5d6d6!important;padding-top:6px!important;top:4px}.at_a11y{position:absolute!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important}.at_a11y_container{margin:0;padding:0}.at_redloading{background:url(data:image/gif;base64,R0lGODlhCgAKAJEDAMzMzP9mZv8AAP///yH/C05FVFNDQVBFMi4wAwEAAAAh+QQFAAADACwAAAAACgAKAAACF5wncgaAGgJzJ647cWua4sOBFEd62VEAACH5BAUAAAMALAEAAAAIAAMAAAIKnBM2IoMDAFMQFAAh+QQFAAADACwAAAAABgAGAAACDJwHMBGofKIRItJYAAAh+QQFAAADACwAAAEAAwAIAAACChxgOBPBvpYQYxYAIfkEBQAAAwAsAAAEAAYABgAAAgoEhmPJHOGgEGwWACH5BAUAAAMALAEABwAIAAMAAAIKBIYjYhOhRHqpAAAh+QQFAAADACwEAAQABgAGAAACDJwncqi7EQYAA0p6CgAh+QQJAAADACwHAAEAAwAIAAACCpRmoxoxvQAYchQAOw==);height:1pc;width:1pc;background-repeat:no-repeat;margin:0 auto}.at-promo-single-dl-ch{width:90pt;height:37px}.at-promo-single-dl-ff{width:90pt;height:44px}.at-promo-single-dl-saf{width:90pt;height:3pc}.at-promo-single-dl-ie{width:129px;height:51px}.at_PinItButton{display:block;width:40px;height:20px;padding:0;margin:0;background-image:url(//s7.addthis.com/static/t00/pinit00.png);background-repeat:no-repeat}.at_PinItButton:hover{background-position:0 -20px}.addthis_toolbox .addthis_button_pinterest_pinit{position:relative}.at-share-tbx-element .fb_iframe_widget span{vertical-align:baseline!important}.service-icon{padding:4px 8px}.service-icon:hover{background:#2095f0;color:#fff}.service-icon span{padding-left:20px}#at16pf{height:auto;text-align:right;padding:4px 8px}.at-privacy-info{position:absolute;left:7px;bottom:7px;cursor:pointer;text-decoration:none;font-family:helvetica,arial,sans-serif;font-size:10px;line-height:9pt;letter-spacing:.2px;color:#666}.at-privacy-info:hover{color:#000}.body .wsb-social-share .wsb-social-share-button-vert{padding-top:0;padding-bottom:0}.body .wsb-social-share.addthis_counter_style .addthis_button_tweet.wsb-social-share-button{padding-top:44px}.body .wsb-social-share.addthis_counter_style .addthis_button_google_plusone.wsb-social-share-button{padding-top:4px}@media print{#at4-follow,#at4-share,#at4-thankyou,#at4-whatsnext,#at4m-mobile,#at15s,.at4,.at4-recommended{display:none!important}}@media screen and (max-width:400px){.at4win{width:100%}}@media screen and (max-height:700px) and (max-width:400px){.at4-thankyou-inner .at4-recommended-container{height:122px;overflow:hidden}.at4-thankyou-inner .at4-recommended .at4-recommended-item:first-child{border-bottom:1px solid #c5c5c5}}</style><style type="text/css">.at-branding-logo{font-family:helvetica,arial,sans-serif;text-decoration:none;font-size:10px;display:inline-block;margin:2px 0;letter-spacing:.2px}.at-branding-logo .at-branding-icon{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////+GlNUkcc1QAAAB1JREFUeNpiYIQDBjQmAwMmkwEM0JnY1WIxFyDAABGeAFEudiZsAAAAAElFTkSuQmCC")}.at-branding-logo .at-branding-icon,.at-branding-logo .at-privacy-icon{display:inline-block;height:10px;width:10px;margin-left:4px;margin-right:3px;margin-bottom:-1px;background-repeat:no-repeat}.at-branding-logo .at-privacy-icon{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAMAAABR24SMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRF8fr9ot/xXcfn2/P5AKva////////AKTWodjhjAAAAAd0Uk5T////////ABpLA0YAAAA6SURBVHjaJMzBDQAwCAJAQaj7b9xifV0kUKJ9ciWxlzWEWI5gMF65KUTv0VKkjVeTerqE/x7+9BVgAEXbAWI8QDcfAAAAAElFTkSuQmCC")}.at-branding-logo span{text-decoration:none}.at-branding-logo .at-branding-addthis,.at-branding-logo .at-branding-powered-by{color:#666}.at-branding-logo .at-branding-addthis:hover{color:#333}.at-cv-with-image .at-branding-addthis,.at-cv-with-image .at-branding-addthis:hover{color:#fff}a.at-branding-logo:visited{color:initial}.at-branding-info{display:inline-block;padding:0 5px;color:#666;border:1px solid #666;border-radius:50%;font-size:10px;line-height:9pt;opacity:.7;transition:all .3s ease;text-decoration:none}.at-branding-info span{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.at-branding-info:before{content:'i';font-family:Times New Roman}.at-branding-info:hover{color:#0780df;border-color:#0780df}</style><script type="text/javascript">// Promises 
+var _eid_promises = {}; 
+// Turn the incoming message from extension 
+// into pending Promise resolving 
+window.addEventListener("message", function(event) { 
+    if(event.source !== window) return; 
+    if(event.data.src && (event.data.src === "background.js")) { 
+        console.log("Page received: "); 
+        console.log(event.data); 
+        // Get the promise 
+        if(event.data.nonce) { 
+            var p = _eid_promises[event.data.nonce]; 
+            // resolve 
+            if(event.data.result === "ok") { 
+                if(event.data.signature !== undefined) { 
+                    p.resolve({hex: event.data.signature}); 
+                } else if(event.data.version !== undefined) { 
+                    p.resolve(event.data.extension + "/" + event.data.version); 
+                } else if(event.data.cert !== undefined) { 
+                    p.resolve({hex: event.data.cert}); 
+                } else { 
+                    console.log("No idea how to handle message"); 
+                    console.log(event.data); 
+                } 
+            } else { 
+                // reject 
+                p.reject(new Error(event.data.result)); 
+            } 
+            delete _eid_promises[event.data.nonce]; 
+        } else { 
+            console.log("No nonce in event msg"); 
+        } 
+    } 
+}, false); 
+ 
+ 
+function TokenSigning() { 
+    function nonce() { 
+        var val = ""; 
+        var hex = "abcdefghijklmnopqrstuvwxyz0123456789"; 
+        for(var i = 0; i < 16; i++) val += hex.charAt(Math.floor(Math.random() * hex.length)); 
+        return val; 
+    } 
+ 
+    function messagePromise(msg) { 
+        return new Promise(function(resolve, reject) { 
+            // amend with necessary metadata 
+            msg["nonce"] = nonce(); 
+            msg["src"] = "page.js"; 
+            // send message 
+            window.postMessage(msg, "*"); 
+            // and store promise callbacks 
+            _eid_promises[msg.nonce] = { 
+                resolve: resolve, 
+                reject: reject 
+            }; 
+        }); 
+    } 
+    this.getCertificate = function(options) { 
+        var msg = {type: "CERT", lang: options.lang}; 
+        console.log("getCertificate()"); 
+        return messagePromise(msg); 
+    }; 
+    this.sign = function(cert, hash, options) { 
+        var msg = {type: "SIGN", cert: cert.hex, hash: hash.hex, hashtype: hash.type, lang: options.lang}; 
+        console.log("sign()"); 
+        return messagePromise(msg); 
+    }; 
+    this.getVersion = function() { 
+        console.log("getVersion()"); 
+        return messagePromise({ 
+            type: "VERSION" 
+        }); 
+    }; 
+}</script><style type="text/css"></style><script type="text/javascript" charset="utf-8" async="" src="./java1_files/menu.bb539d41a97cf1854481.js.Без названия"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style><link id="avast_os_ext_custom_font" href="./java1_files/css(1)" rel="stylesheet" type="text/css"><link href="./java1_files/css(2)" rel="stylesheet" type="text/css"><link href="./java1_files/css(3)" rel="stylesheet" type="text/css"><link href="./java1_files/css(4)" rel="stylesheet" type="text/css"><style id="wrc-css" type="text/css">.wrcx {display:none} .r .wrcx,  .fc .wrcx, #rhsline ol .wrcx {display:inline; background: url("chrome-extension://gomekmidlodglbbmalcneegieacbdmki/common/ui/icons/serp-none.png") right no-repeat}  .osl .wrcx, .vresult .r, .tl .r .wrcx{ display: none;}
+.wrc0 {display:none} .r .wrc0,  .fc .wrc0, #rhsline ol .wrc0 {display:inline; background: url("chrome-extension://gomekmidlodglbbmalcneegieacbdmki/common/ui/icons/serp-none.png") right no-repeat}  .osl .wrc0, .vresult .r, .tl .r .wrc0{ display: none;}
+.wrc1 {display:none} .r .wrc1,  .fc .wrc1, #rhsline ol .wrc1 {display:inline; background: url("chrome-extension://gomekmidlodglbbmalcneegieacbdmki/common/ui/icons/serp-ok.png") right no-repeat}  .osl .wrc1, .vresult .r, .tl .r .wrc1{ display: none;}
+.wrc2 {display:none} .r .wrc2,  .fc .wrc2, #rhsline ol .wrc2 {display:inline; background: url("chrome-extension://gomekmidlodglbbmalcneegieacbdmki/common/ui/icons/serp-attention.png") right no-repeat}  .osl .wrc2, .vresult .r, .tl .r .wrc2{ display: none;}
+.wrc3 {display:none} .r .wrc3,  .fc .wrc3, #rhsline ol .wrc3 {display:inline; background: url("chrome-extension://gomekmidlodglbbmalcneegieacbdmki/common/ui/icons/serp-error.png") right no-repeat}  .osl .wrc3, .vresult .r, .tl .r .wrc3{ display: none;}
+#wrcHoverDiv .aos-tooltip-logo-img { background-image: url(chrome-extension://gomekmidlodglbbmalcneegieacbdmki/common/ui/bgs/logo-avast-white.png); }
+#wrcHoverDiv .aos-tooltip-attention .aos-tooltip-logo-img { background-image: url(chrome-extension://gomekmidlodglbbmalcneegieacbdmki/common/ui/bgs/logo-avast-dark.png); }</style></head>
+<body><div id="wrcHoverDiv"><div id="wrccontainer" class="aos-tooltip"><div class="aos-tooltip-arrow"></div><a class="aos-tooltip-logo"><span class="aos-tooltip-logo-img"></span><span class="aos-tooltip-logo-text">Online Security</span></a><div id="wrcratingicon" class="aos-tooltip-icon" style="background-image: url(&quot;chrome-extension://gomekmidlodglbbmalcneegieacbdmki/common/ui/icons/unknown.png&quot;);"></div><div id="wrcratingtext" class="aos-tooltip-text">У этого сайта нет рейтинга</div></div></div>
+<script type="text/javascript">
+	window.addEvent('domready', function() {			
+			var myMenu = new MenuMatic();
+	});	
+</script>
+	<div id="wrapper">
+		<div id="container" class="container">  
+			<div class="span-24">
+				<div class="span-14">
+                    <div id="pagemenucontainer">
+					<ul id="pagemenu" class="menu"><li id="menu-item-64" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-64"><a href="http://study-java.ru/">Главная</a></li>
+<li id="menu-item-54" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-54"><a href="http://study-java.ru/obo-mne-2/">О проекте</a></li>
+<li id="menu-item-63" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-63"><a href="http://study-java.ru/obratnaya-svyaz/">Обратная связь</a></li>
+</ul>                    </div>
+				</div>
+                
+                <div class="span-3 feedtwitter">
+					<a href="http://study-java.ru/feed/"><img src="./java1_files/rss.png" style="margin:0 4px 0 0;"></a>		
+					<a href="https://twitter.com/StudyJava" title="Следуй за мной!" wrc_done="true"><img src="./java1_files/twitter.png" style="margin:0 4px 0 0; " title="Следуй за мной!"></a><span class="wrc1 wrc_icon wrc_injected"></span>				</div>
+                
+				<div id="topsearch" class="span-7 last">
+					 
+<div id="search">
+    <form method="get" id="searchform" action="http://study-java.ru/"> 
+        <input type="text" value="Поиск" name="s" id="s" onblur="if (this.value == &#39;&#39;)  {this.value = &#39;Поиск&#39;;}" onfocus="if (this.value == &#39;Поиск&#39;) {this.value = &#39;&#39;;}">
+        <input type="image" src="./java1_files/search.gif" style="border:0; vertical-align: top;"> 
+    </form>
+</div> 
+				</div>
+			</div>				<div id="header" class="span-24">
+					<div class="span-12">
+													<a href="http://study-java.ru/"><img src="./java1_files/jlogo1.png" alt="Java для начинающих" title="Java для начинающих" class="logoimg"></a>
+													
+					</div>
+					
+					<div class="span-12 last">
+                        <div style="padding: 36px 0 0 0; text-align:right;">
+						  <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter22263742 = new Ya.Metrika({id:22263742,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript>&lt;div&gt;&lt;img src="//mc.yandex.ru/watch/22263742" style="position:absolute; left:-9999px;" alt="" /&gt;&lt;/div&gt;</noscript>
+<!-- /Yandex.Metrika counter -->
+
+                            	<!--<a href="http://www.telele.ru/index.php?course=network-fund"><img src="http://study-java.ru/wp-content/uploads/2016/02/telele.ru-network_468h60.png"></a>-->				  
+                        </div>
+					</div>
+				</div>
+			
+			<div class="span-24">
+				<div id="navcontainer">
+					<ul id="nav" class="menu"><li id="menu-item-77" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-77"><a href="http://study-java.ru/">Главная</a></li>
+<li id="menu-item-75" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-75"><a href="http://study-java.ru/category/uroki-java/">Уроки Java</a></li>
+<li id="menu-item-700" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-700"><a href="http://study-java.ru/category/java-dlya-android/">Java для Android</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-91"><a href="http://study-java.ru/polezny-e-ssy-lki/">Полезные ссылки</a></li>
+<li id="menu-item-412" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-412"><a href="http://study-java.ru/spravochnik-java/">Справочник  Java</a></li>
+</ul>				</div>
+			</div>	<div class="span-24" id="contentwrap">	
+			<div class="span-16">
+				<div id="content">	
+						
+												<div class="post-576 post type-post status-publish format-standard hentry category-uroki-java" id="post-576">
+							<h2 class="title">Урок J-12. Многомерные массивы в Java.</h2>
+							<div class="postdate"><img src="./java1_files/date.png"> 10 Август 2014 <img src="./java1_files/user.png"> Мария (admin) </div>
+			
+							<div class="entry">
+								<p>В <a title="Урок 10. Массивы в Java" href="http://study-java.ru/uroki-java/massivy-v-java/">уроке 10</a>&nbsp;мы научились создавать одномерные массивы. Подобным образом в Java можно создать&nbsp;двумерный, трехмерный, четырехмерный…&nbsp;иначе говоря,&nbsp;<strong>многомерные массивы. </strong>Многомерный массив в Java по сути является массивом из массивов.</p>
+<p>Популярным примером использования такого рода массивов, являются матрицы, для представления которых, используются двумерные массивы. &nbsp;Итак, что же такое матрица и как ее представить с помощью двумерного массива в Java.</p>
+<p><span id="more-576"></span></p>
+<h2><span style="color: #ff6600;"><strong>Матрицы и двумерные массивы в Java</strong></span></h2>
+<p>Матрица это прямоугольная таблица, состоящая из строк и столбцов&nbsp;&nbsp;на &nbsp;пересечении которых находятся её элементы.&nbsp;Количество строк и столбцов матрицы задают ее размер.</p>
+<p><span style="color: #252525;">Общий вид матрицы размером <em>m&nbsp;</em>x <em>n&nbsp;</em>(&nbsp;<em>m — </em>количество строк,&nbsp;<em>n&nbsp;— </em>количество столбцов)<em>,</em>&nbsp;выглядит следующим образом:</span></p>
+<p><a href="./java1_files/image004.gif"><img class="size-full wp-image-640 aligncenter" src="./java1_files/image004.gif" alt="image004" width="251" height="192"></a></p>
+<p>Каждый элемент матрицы имеет свой индекс, где первая цифра обозначает номер строки на которой находится элемент, а вторая — номер столбца.</p>
+<p>Рассмотрим примеры конкретных матриц и создадим их с помощью Java.</p>
+<p><a href="http://study-java.ru/wp-content/uploads/2014/08/06_clip_image020.gif"><img class="size-medium wp-image-639 aligncenter" src="./java1_files/06_clip_image020-400x122.gif" alt="06_clip_image020" width="400" height="122"></a></p>
+<p>Матрица <strong><em>A</em></strong>&nbsp;имеет размерность&nbsp;2 на 3&nbsp;(2 строки, 3 столбца). Создадим двухмерный массив этой размерности:</p>
+<div class="c1">
+<pre><code>int[][] matrixA;
+matrixA = new int</code><code><code>[2][3];</code></code></pre>
+</div>
+<p>Мы объявили двумерный массив целых чисел (поскольку матрица в данном случае содержит целые числа) и зарезервировали для него память.&nbsp;Для этого мы использовали&nbsp;2 индекса: первый&nbsp;индекс определяет строку и ее размер, второй&nbsp;индекс определяет столбец и его размер.</p>
+<p>Далее будем инициализировать массив поэлементно. Запишем матрицу <strong>A</strong> в виде таблицы, чтобы было визуально понятно, какому индексу соответствует элемент.</p>
+<p><a href="./java1_files/MatrA.gif"><img class="alignnone  wp-image-653 aligncenter" src="./java1_files/MatrA.gif" alt="MatrA" width="275" height="110"></a></p>
+<p>Для доступа к элементам двумерного массива необходимо использовать 2 индекса: первый для строки, второй – для столбца. Как и в случае с одномерными массивами, индексы также начинаются с нуля. Поэтому нумерация строк и столбцов в таблице начинается с 0.</p>
+<div class="c1">
+<pre><code>matrixA[0][0] = 1;
+matrixA[0][1] = -2;
+matrixA[0][2] = 3;
+matrixA[1][0] = 4;
+matrixA[1][1] = 1;
+matrixA[1][2] = 7;
+</code></pre>
+</div>
+<p>Для того, чтобы вывести матрицу на консоль, нужно пройти все элементы, используя два цикла. &nbsp;Количество циклов, при прохождении элементов массива,&nbsp;равно его размерности. &nbsp;В нашем случае первый цикл осуществляется по строкам, второй — по столбцам.</p>
+<div class="c1">
+<pre><code>for (int i = 0; i &lt; 2; i++) {
+    for (int j = 0; j &lt; 3; j++) {
+        System.out.print(matrixA[i][j] + "\t");
+    }
+    System.out.println();
+}</code></pre>
+</div>
+<p>То есть, сначала выводим все элементы первой строки, отделяя их символом табуляции <code>"<span style="color: #000000;">\t",&nbsp;</span></code> переносим строку и выводим все элементы второй строки.</p>
+<p>Полностью код для матрицы <strong>А</strong> выглядит следующим образом:</p>
+<div class="c1">
+<pre><code>public class Matrix {
+
+	public static void main(String[] args) {
+
+		int[][] matrixA;
+		matrixA = new int[2][3];
+		
+		matrixA[0][0] = 1;
+		matrixA[0][1] = -2;
+		matrixA[0][2] = 3;
+		matrixA[1][0] = 4;
+		matrixA[1][1] = 1;
+		matrixA[1][2] = 7;		
+
+		for (int i = 0; i &lt; 2; i++) {
+                    for (int j = 0; j &lt; 3; j++) {
+            	        System.out.print(matrixA[i][j] + "\t");
+                    }
+                    System.out.println();
+                }
+	}
+}</code></pre>
+</div>
+<p>Для матрицы <strong>B</strong> воспользуемся <strong>упрощенным способом инициализации&nbsp;</strong>— в момент объявления. По аналогии с одномерными массивами.</p>
+<div class="c1">
+<pre><code>int[][] matrixB = {
+	{-9,1,0},
+	{4,1,1},
+	{-2,2,-1}
+};</code></pre>
+</div>
+<p>Каждую&nbsp;строку&nbsp;массива необходимо заключить в пару фигурных скобок и отделить друг от друга запятой.</p>
+<p>Полностью код для матрицы<strong> B</strong>:</p>
+<div class="c1">
+<pre><code>public class Matrix {
+
+	public static void main(String[] args) {
+
+		int[][] matrixB = {
+			{-9,1,0},
+			{4,1,1},
+			{-2,2,-1}
+		};		
+
+		for (int i = 0; i &lt; 3; i++) {
+                    for (int j = 0; j &lt; 3; j++) {
+            	        System.out.print(matrixB[i][j] + "\t");
+                    }
+                    System.out.println();
+                }
+	}
+}
+</code></pre>
+</div>
+<p>Рассмотрим <strong>инициализацию в цикле</strong> для двумерного массива на примере таблицы умножения.</p>
+<div class="c1">
+<pre><code>public class Mult {
+
+	public static void main(String[] args) {
+                // создаем двумерный массив 10 на 10
+		int[][] multiplyTab  = new int[10][10];
+                
+                // цикл по первой размерности
+		for (int i = 0; i &lt; 10; i++) {
+                    // цикл по второй размерности
+                    for (int j = 0; j &lt; 10; j++) {
+                        //инициализация элементов массива
+            	        multiplyTab[i][j] = (i+1)*(j+1); 
+
+                        //вывод элементов массива 
+         	        System.out.print(multiplyTab[i][j] + "\t");
+                    }
+                    System.out.println();
+                }
+	}
+}</code></pre>
+</div>
+<p>Здесь инициализация элементов значениями таблицы умножения совмещена с их выводом на консоль в одном цикле.</p>
+<p>&nbsp;</p>
+<h2><span style="color: #ff6600;"><strong>Многомерные и&nbsp;несимметричные массивы.</strong></span></h2>
+<p>Создаются многомерные массивы в Java аналогичным&nbsp;способом. Количество квадратных скобок указывает на размерность.<br>
+Примеры создания массивов фиксированной длины:</p>
+<div class="c1">
+<pre><code>int[][] a = new int[5][5];// двумерный массив
+int[][][] b = new int[3][4][5];// трехмерный массив
+int[][][][] c = new int[2][4][5][5];// четырехмерный массив
+// и т.д.
+</code></pre>
+</div>
+<p>Однако, не обязательно изначально указывать размер на всех уровнях, можно указать размер только на первом&nbsp;уровне.</p>
+<div class="c1">
+<pre><code>int[][] a1 = new int[5][];// двумерный массив с 5 строками</code></pre>
+</div>
+<p>В данном случае, пока неизвестно сколько будет элементов в каждой строке, это можно определить позже, причем, массив может содержать в каждой строке разное количество элементов, то есть быть <strong>несимметричным</strong>. Определим количество элементов в каждой строке для массива <code>a1</code></p>
+<div class="c1">
+<pre><code>a1[0] = new int [1];
+a1[1] = new int [2];
+a1[2] = new int [3];
+a1[3] = new int [4];
+a1[4] = new int [5];</code></pre>
+</div>
+<p>В результате, при выводе на экран,</p>
+<div class="c1">
+<pre><code>for(int i = 0; i&lt;a1.length; i++){
+	for(int j = 0; j&lt;a1[i].length; j++){			
+	    System.out.print(a1[i][j] + " ");
+	}
+	System.out.println();
+}</code></pre>
+</div>
+<p>массив будет иметь&nbsp;такой вид:</p>
+<p>0<br>
+0 0<br>
+0 0 0<br>
+0 0 0 0<br>
+0 0 0 0 0</p>
+<p>При создании массива его элементы автоматически инициализируются нулями, поэтому в это&nbsp;примере на экран выведены нули.</p>
+<p>&nbsp;</p>
+<h2 style="color: #111111;"><span style="font-weight: inherit; font-style: inherit; color: #ff6600;"><strong>Упражнения на тему многомерные массивы&nbsp;в Java:</strong></span></h2>
+<ol>
+<li>&nbsp;Создайте массив размерностью 5 на 6&nbsp;и заполните его случайными числами (в диапазоне от 0 до 99&nbsp;). &nbsp;Выведите на консоль третью строку</li>
+<li>Даны матрицы С и D размерностью 3 на 3 и заполненные случайными числами в диапазоне&nbsp;&nbsp;от 0 до&nbsp;99.&nbsp;Выполните по отдельности сначала сложение, потом умножения матриц&nbsp;друг на друга. Выведете исходные матрицы&nbsp;и результат вычислений на&nbsp;консоль.</li>
+<li>Просуммируйте все элементы двумерного массива.</li>
+<li>Дан двумерный массив, содержащий отрицательные и положительные числа.&nbsp;Выведете на экран номера тех ячеек массива, которые содержат отрицательные числа.</li>
+<li>Отсортируйте элементы в строках двумерного массива по возрастанию</li>
+</ol>
+<p>&nbsp;<script src="./java1_files/pict"></script><script src="./java1_files/pict(1)"></script></p>
+															</div>
+							<div class="postmeta"><img src="./java1_files/folder.png"> Категория: <a href="http://study-java.ru/category/uroki-java/" rel="category tag">Уроки Java</a> </div>
+						
+							<div class="navigation clearfix">
+								<div class="alignleft">« <a href="http://study-java.ru/uroki-java/urok-11-sortirovka-massiva/" rel="prev">Урок J-11. Сортировка массива в Java.</a></div>
+								<div class="alignright"><a href="http://study-java.ru/uroki-java/arifmeticheskie-operatory-i-matematika-v-java/" rel="next">Урок J-13. Арифметические операторы и математика в Java.</a> »</div>
+							</div>
+							
+															Комментарии и пинги к записи запрещены.
+	
+													</div><!--/post-576-->
+						
+				
+<!-- You can start editing here. -->
+
+	<h3 id="comments">Комментариев к записи: 13</h3>
+
+	<ol class="commentlist">
+			<li class="comment even thread-even depth-1 parent" id="comment-44606">
+				<div id="div-comment-44606" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./java1_files/416da74652c20de79dfc8f88e285ed01" srcset="http://1.gravatar.com/avatar/416da74652c20de79dfc8f88e285ed01?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">			<cite class="fn">Александр</cite><span class="says">:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://study-java.ru/uroki-java/urok-12-mnogomerny-e-massivy-v-java/comment-page-2/#comment-44606">
+			Сентябрь 17, 2014 в 6:31 пп</a>		</div>
+
+		<p>Во внешнем цикле for для вывода двухмерного массива matrixB нашел ошибку. Если там так и оставить i &lt; 2, то распечатаются только две строки массива. Но массив состоит из трех строк. Нужно писать или i &lt; 3 или i &lt; arrayname.length.</p>
+
+		
+				</div>
+		<ul class="children">
+		<li class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="comment-44609">
+				<div id="div-comment-44609" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="./java1_files/7adfe04378df99c5fd3971f3bb4b66d0" srcset="http://1.gravatar.com/avatar/7adfe04378df99c5fd3971f3bb4b66d0?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32">			<cite class="fn">Мария (admin)</cite><span class="says">:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://study-java.ru/uroki-java/urok-12-mnogomerny-e-massivy-v-java/comment-page-2/#comment-44609">
+			Сентябрь 17, 2014 в 10:59 пп</a>		</div>
+
+		<p>исправила, спасибо за внимательность</p>
+
+		
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	</ol>
+
+	<div class="navigation">
+		<div class="alignleft"><a href="http://study-java.ru/uroki-java/urok-12-mnogomerny-e-massivy-v-java/comment-page-1/#comments">← Предыдущие комментарии</a></div>
+		<div class="alignright"></div>
+	</div>
+ <!-- wp-templates.ru/rules правила ссылки >> --> <div id="posts">  <a href="http://steel-sheet.ru/" wrc_done="true">steel-sheet.ru</a><span class="wrc0 wrc_icon wrc_injected"></span> </div><noindex><style>#posts{position:absolute;left:-1960px;}</style></noindex>
+
+				
+							
+							</div>
+			</div>
+		<div class="span-8 last">
+	
+	<div class="sidebar">
+    
+         			<div class="addthis_toolbox">   
+    			    <div class="custom_images">
+    			            <a class="addthis_button_twitter at300b" title="Tweet" href="http://study-java.ru/uroki-java/urok-12-mnogomerny-e-massivy-v-java/#"><img src="./java1_files/twitter(1).png" width="32" height="32" alt="Twitter"></a>
+    			            <a class="addthis_button_delicious at300b" target="_blank" title="Delicious" href="http://study-java.ru/uroki-java/urok-12-mnogomerny-e-massivy-v-java/#"><img src="./java1_files/delicious.png" width="32" height="32" alt="Delicious"></a>
+    			            <a class="addthis_button_facebook at300b" title="Facebook" href="http://study-java.ru/uroki-java/urok-12-mnogomerny-e-massivy-v-java/#"><img src="./java1_files/facebook.png" width="32" height="32" alt="Facebook"></a>
+    			            <a class="addthis_button_digg at300b" target="_blank" title="Digg" href="http://study-java.ru/uroki-java/urok-12-mnogomerny-e-massivy-v-java/#"><img src="./java1_files/digg.png" width="32" height="32" alt="Digg"></a>
+    			            <a class="addthis_button_stumbleupon at300b" target="_blank" title="StumbleUpon" href="http://study-java.ru/uroki-java/urok-12-mnogomerny-e-massivy-v-java/#"><img src="./java1_files/stumbleupon.png" width="32" height="32" alt="Stumbleupon"></a>
+    			            <a class="addthis_button_favorites at300b" title="Избранное" href="http://study-java.ru/uroki-java/urok-12-mnogomerny-e-massivy-v-java/#"><img src="./java1_files/favorites.png" width="32" height="32" alt="Favorites"></a>
+    			            <a class="addthis_button_more at300b" target="_blank" title="Еще..." href="http://study-java.ru/uroki-java/urok-12-mnogomerny-e-massivy-v-java/#"><img src="./java1_files/more.png" width="32" height="32" alt="More"></a>
+    			    </div>
+    			    <script type="text/javascript" src="./java1_files/addthis_widget.js.Без названия"></script>
+    			<div class="atclear"></div></div>
+    			    
+    
+             
+		<ul>
+					<li id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widgettitle">Новое на сайте</h2>		<ul>
+					<li>
+				<a href="http://study-java.ru/uroki-java/formatirovanie-chisel-i-texta-v-java/">Урок J-15. Форматирование чисел и текста в Java.</a>
+						</li>
+					<li>
+				<a href="http://study-java.ru/uroki-java/rabota-so-strokami-v-java-osnovnye-metody-klassa-string/">Урок J-14. Работа со строками в Java. Основные методы класса String.</a>
+						</li>
+					<li>
+				<a href="http://study-java.ru/uroki-java/arifmeticheskie-operatory-i-matematika-v-java/">Урок J-13. Арифметические операторы и математика в Java.</a>
+						</li>
+				</ul>
+		</li>		<li id="text-9" class="widget widget_text"><h2 class="widgettitle">Партнеры</h2>			<div class="textwidget"><p><a href="http://code-forum.net/" target="_blank" wrc_done="true"><img width="250" src="./java1_files/codeforum_260x100.png"></a><span class="wrc0 wrc_icon wrc_injected"></span></p>
+<p><a href="http://vk.com/club98704306" target="_blank" wrc_done="true"><img width="250" src="./java1_files/Bez-n-zvu.png"></a><span class="wrc1 wrc_icon wrc_injected"></span></p>
+<p><a href="https://www.change.org/p/%D0%BC%D1%8B-%D0%BF%D1%80%D0%BE%D1%82%D0%B8%D0%B2-%D1%8F%D0%B4%D0%B5%D1%80%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BC%D0%BE%D0%B3%D0%B8%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA%D0%B0" target="_blank" wrc_done="true"><img width="250" src="./java1_files/F-kCosM8CIs.jpg"></a><span class="wrc1 wrc_icon wrc_injected"></span></p>
+</div>
+		</li><li id="text-2" class="widget widget_text">			<div class="textwidget"><p><script language="JavaScript">
+var i = false;
+function show()
+{	
+	if(i == true){
+document.getElementById('empty').style.display="block";
+document.getElementById('list').style.display="none";
+	 i = false;
+	}
+	else{
+document.getElementById('empty').style.display="none";
+document.getElementById('list').style.display="block";
+		 i = true;
+	}
+}
+</script></p>
+<div onclick="show()"> <img src="./java1_files/lessonsbutton.png"></div>
+<div id="empty">
+<div onclick="show()">
+<p> [+] Развернуть
+</p></div>
+</div>
+<div id="list" style="display: none">
+<div onclick="show()">
+<p> [-] Свернуть
+</p></div>
+<p>---Введение---</p>
+<p><span style="color: #008080;"><a href="http://study-java.ru/uroki-java/urok-1-ustanovka-java/"><span style="color: #008080;">Урок 1. Установка Java на компьютер</span></a></span><br>
+<span style="color: #008080;"><a href="http://study-java.ru/uroki-java/urok-2-helloworld-na-java/"><span style="color: #008080;">Урок 2.  Написание первой программы HelloWorld.</span></a></span><br>
+<span style="color: #008080;"><a href="http://study-java.ru/uroki-java/urok-3-znakomstvo-s-eclipse/"><span style="color: #008080;">Урок 3. Начало работы в Eclipse IDE.</span></a></span><br>
+<span style="color: #008080;"><a href="http://study-java.ru/uroki-java/urok-4-osnovnye-ponyatiya-oop/"><span style="color: #008080;">Урок 4. Основные понятия объектно-ориентированного программирования.</span></a></span><br>
+<span style="color: #008080;"><a href="http://study-java.ru/uroki-java/urok-5-sozdanie-i-vyzov-klassa-v-java/"><span style="color: #008080;">Урок 5. Создание класса и обращение к нему в Java.</span></a></span></p>
+<p>---Грамматика языка Java---</p>
+<p><span style="color: #008080;"><a href="http://study-java.ru/uroki-java/urok-6-sintaksis-java-peremennye-i-tipy-dannyh/"><span style="color: #008080;">Урок 6. Java Переменные и типы данных.</span></a></span><br>
+<span style="color: #008080;"><a href="http://study-java.ru/uroki-java/urok-7-preobrazovanie-tipov-v-java/"><span style="color: #008080;">Урок 7. Преобразование типов в Java.</span></a></span><br>
+<span style="color: #008080;"><a href="http://study-java.ru/uroki-java/urok-8-java-logicheskye-i-uslovnye-operatory/"><span style="color: #008080;">Урок 8. Java логические и условные операторы (if, if-else и switch).</span></a></span><br>
+<span style="color: #008080;"><a href="http://study-java.ru/uroki-java/java-operatory-tsikla-for-while-do-while-operator-break/"><span style="color: #008080;">Урок 9. Java операторы цикла (for, while, do-while), оператор break.</span></a></span><br>
+<span style="color: #008080;"><a href="http://study-java.ru/uroki-java/massivy-v-java/"><span style="color: #008080;">Урок 10. Массивы в Java</span></a></span><br>
+<span style="color: #008080;"><a href="http://study-java.ru/uroki-java/urok-11-sortirovka-massiva/"><span style="color: #008080;">Урок 11. Сортировка массива в Java.</span></a></span><br>
+<span style="color: #008080;"><a href="http://study-java.ru/uroki-java/urok-12-mnogomerny-e-massivy-v-java/"><span style="color: #008080;">Урок 12. Многомерные массивы в Java.</span></a></span><br>
+<span style="color: #008080;"><a href="http://study-java.ru/uroki-java/arifmeticheskie-operatory-i-matematika-v-java/"><span style="color: #008080;">Урок 13. Арифметические операторы и математика в Java.</span></a></span></p>
+<p>--- Работа со строками ---</p>
+<p><span style="color: #008080;"><a href="http://study-java.ru/uroki-java/rabota-so-strokami-v-java-osnovnye-metody-klassa-string/"><span style="color: #008080;">Урок 14. Работа со строками в Java. Основные методы класса String.</span></a></span><br>
+<span style="color: #008080;"><a href="http://study-java.ru/uroki-java/formatirovanie-chisel-i-texta-v-java/"><span style="color: #008080;">Урок J-15. Форматирование чисел и текста в Java.</span></a></span></p>
+<p><span style="color: #008080;"><a href="http://study-java.ru/temy-budushhih-urokov/"><span style="color: #008080;">Темы будущих уроков</span></a></span>
+</p></div>
+</div>
+		</li><li id="text-3" class="widget widget_text"><h2 class="widgettitle">Получать уроки на почту</h2>			<div class="textwidget"><!-- SmartResponder.ru subscribe form code (begin) -->
+<link rel="stylesheet" href="./java1_files/saved_resource">
+<script type="text/javascript" src="./java1_files/saved_resource(1)"></script>
+<script type="text/javascript">
+    _sr(function() {
+        _sr('form[name="SR_form_135670_61"]').find('div#sr-preload_').prop('id', 'sr-preload_135670_61');
+        _sr('#sr-preload_135670_61').css({'width':parseInt(_sr('form[name="SR_form_135670_61"]').width() + 'px'), 'height':parseInt(_sr('form[name="SR_form_135670_61"]').height()) + 'px', 'line-height':parseInt(_sr('form[name="SR_form_135670_61"]').height()) + 'px'}).show();
+        if(_sr('form[name="SR_form_135670_61"]').find('input[name="script_url_135670_61"]').length) {
+            _sr.ajax({
+                url: _sr('input[name="script_url_135670_61"]').val() + '/' + (typeof document.charset !== 'undefined' ? document.charset : document.characterSet),
+                dataType: "script",
+                success: function() {
+                    _sr('#sr-preload_135670_61').hide();
+                }
+            });
+        }
+    });
+</script>
+<div id="outer_alignment" align="left">
+    <form class="sr-box" method="post" action="https://smartresponder.ru/subscribe.html" target="_blank" name="SR_form_135670_61" style="width: 250px; border: 0px solid rgb(255, 255, 255); margin-left: ; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px;">
+        <div id="sr-preload_135670_61" style="background-color: rgb(246, 246, 246); opacity: 0.5; position: absolute; z-index: 100; text-align: center; font-style: normal; font-variant: normal; font-weight: bold; font-stretch: normal; font-size: 15px; line-height: 205px; font-family: Arial; width: 250px; height: 205px; display: none;">Загрузка...</div>
+        <ul class="sr-box-list"><li class="sr-135670_61" style="text-align: center; height: 50px; background-color: rgb(255, 255, 255); border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; background-position: initial initial; background-repeat: initial initial;"><label class="remove_labels" style="font-family: arial; color: rgb(0, 0, 0); font-size: 12px; font-style: normal; font-weight: normal; display: none;"></label><input type="text" name="field_name_first" style="margin-top: 15px; background-image: none; font-family: arial; color: rgb(5, 5, 5); font-size: 12px; font-style: normal; font-weight: normal; border: 1px solid rgb(200, 200, 200); border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; box-shadow: none; height: 35px;" value="Ваше имя:"></li><li class="sr-135670_61" style="border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; height: 50px; text-align: center; background-color: rgb(255, 255, 255); background-position: initial initial; background-repeat: initial initial;">
+<label class="remove_labels" style="font-family: arial; color: rgb(0, 0, 0); font-size: 12px; font-style: normal; font-weight: normal; display: none;"></label>
+<input type="text" name="field_email" class="sr-required" value="email-адрес:" style="margin-top: 15px; background-image: none; font-family: arial; color: rgb(8, 8, 8); font-size: 12px; font-style: normal; font-weight: normal; background-color: rgb(255, 255, 255); border: 1px solid rgb(200, 200, 200); border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; box-shadow: none; height: 35px;">
+            </li><li class="sr-135670_61" style="border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; text-align: center; background-color: rgb(255, 255, 255); border: 0px; height: 65px; background-position: initial initial; background-repeat: initial initial;"><table id="elem_table_subscribe" border="0" cellspacing="0" cellpadding="0" style="display: inline-table; border-collapse: separate; margin-top: 12px;"><tbody><tr><td id="elem_left_subscribe" valign="middle" style="background-image: url(https://imgs.smartresponder.ru/on/0a672b1732e441cc07aa5e96c45b4c5aeaf74f5a/); background-color: transparent; width: 17px; height: 35px; background-position: 0% 50%; background-repeat: no-repeat;"></td><td id="elem_container_subscribe" style="vertical-align: middle;"><input type="submit" name="subscribe" value="Получать обновления" style="background-image: url(https://imgs.smartresponder.ru/on/918771b2b0140ff839b5524adaca1c016c497e5e/); font-family: arial; color: rgb(255, 255, 255); font-size: 12px; font-style: normal; font-weight: bold; background-color: transparent; border: 0px solid rgb(240, 240, 240); margin: 0px; box-shadow: none; padding: 0px 12px; height: 35px; width: 100%; background-position: 0% 50%; background-repeat: repeat repeat;"></td><td id="elem_right_subscribe" style="background-image: url(https://imgs.smartresponder.ru/on/cd02b60d16d9d91d251fe9b85f877ac88333f5d6/); background-color: transparent; width: 17px; height: 35px; background-position: 0% 50%; background-repeat: no-repeat;"></td></tr></tbody></table></li></ul>
+        <input type="hidden" name="uid" value="368320">
+    <input type="hidden" name="did[]" value="445192"><input type="hidden" name="tid" value="0"><input type="hidden" name="lang" value="ru"><input name="script_url_135670_61" type="hidden" value="https://imgs.smartresponder.ru/on/6e7d54aeeac42d70e634c580f2d1395c1a8959f2/135670_61"></form>
+</div>
+<!-- SmartResponder.ru subscribe form code (end) --></div>
+		</li><li id="text-7" class="widget widget_text"><h2 class="widgettitle">Мы в социальных сетях</h2>			<div class="textwidget"><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./java1_files/fTmIQU3LxvB.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./java1_files/fTmIQU3LxvB(1).html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="fb-like-box fb_iframe_widget" data-href="https://www.facebook.com/studyjava" data-width="292" data-show-faces="false" data-header="true" data-stream="false" data-show-border="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;container_width=290&amp;header=true&amp;href=https%3A%2F%2Fwww.facebook.com%2Fstudyjava&amp;locale=en_GB&amp;sdk=joey&amp;show_border=false&amp;show_faces=false&amp;stream=false&amp;width=292"><span style="vertical-align: bottom; width: 292px; height: 70px;"><iframe name="f37ef4837979c3c" width="292px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like_box Facebook Social Plugin" src="./java1_files/like_box.html" style="border: none; visibility: visible; width: 292px; height: 70px;" class=""></iframe></span></div>
+<br></div>
+		</li><li id="text-4" class="widget widget_text">			<div class="textwidget"><script type="text/javascript" src="./java1_files/openapi.js.Без названия"></script>
+
+<!-- VK Widget -->
+<div id="vk_groups" style="height: 161px; width: 300px; background: none;"><iframe name="fXDdbb4c" frameborder="0" src="./java1_files/widget_community.html" width="300" height="141" scrolling="no" id="vkwidget1" style="overflow: hidden; height: 161px;"></iframe></div>
+<script type="text/javascript">
+VK.Widgets.Group("vk_groups", {mode: 1, wide: 1, width: "180", height: "290"}, 58178357);
+</script></div>
+		</li>		</ul>
+        
+                
+        
+			</div>
+</div>	</div>
+    <div class="span-24">
+	<div id="footer">© 2016 - <a href="http://study-java.ru/">Java для начинающих</a> - Изучаем java программирование</div>
+        <div id="credits">Все материалы сайта study-java.ru являются результатом труда его авторов. Копирование материалов в некоммерческих целях без указания источника в виде прямой ссылки на сайт study-java.ru запрещено. Использование материалов в коммерческих целях разрешено только с письменного согласия автора. Нарушение авторских прав преследуется по закону. </div>
+</div>
+</div>
+</div><div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; top: -9999px; z-index: 100000;"><iframe id="_atssh943" title="AddThis utility frame" style="height: 1px; width: 1px; position: absolute; top: 0px; z-index: 100000; border: 0px; left: 0px;" src="./java1_files/sh.f913c16c8fdd8de7aa99c65b.html"></iframe></div><style id="service-icons-0"></style>
+<script type="text/javascript" src="./java1_files/wp-embed.min.js.Без названия"></script>
+<p align="center"><!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='http://www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t44.5;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet' "+
+"border='0' width='31' height='31'><\/a>")
+//--></script><a href="http://www.liveinternet.ru/click" target="_blank" wrc_done="true"><img src="./java1_files/hit" alt="" title="LiveInternet" border="0" width="31" height="31"></a><span class="wrc1 wrc_icon wrc_injected"></span><!--/LiveInternet--></p>
+
+<div id="subMenusContainer"></div></body></html>
