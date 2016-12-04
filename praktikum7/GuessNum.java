@@ -19,8 +19,6 @@ public class GuessNum {
 				break;
 			}
 		}
-		
-
 	}
 
 	public static void Kontroll(int num1, int guess) {
