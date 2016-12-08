@@ -7,6 +7,10 @@ public class SimpleGUI extends JFrame {
 	/**
 	 * 
 	 */
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
 	private JButton button = new JButton("Press");
 	private JTextField input = new JTextField("", 50);
 	private JLabel label = new JLabel("Input:");

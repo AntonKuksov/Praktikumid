@@ -1,8 +1,6 @@
 package kodutoo;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Random;
-
 import javax.swing.*;
 
 
@@ -11,14 +9,16 @@ public class KostiGUI extends JFrame {
 	private JButton Go2_button = new JButton("GO SECOND!");
 	private JButton Compare_button = new JButton("Compare");
 
-	private JLabel FirtPlayerlabel = new JLabel("FirtPlayer: ");
-	private JLabel SecondPlayerlabel = new JLabel("SecondPlayer: ");
-	private JLabel Resultlabel = new JLabel("Result: ");
+	private JLabel FirstPlayerInfolabel = new JLabel("FirtPlayer: ");
+	private JLabel SecondPlayerInfolabel = new JLabel("SecondPlayer: ");
 	
-	static int[] score = new int[2];
-	static int num1;
-	static int num2;
+	private JLabel FirstPlayerlabel = new JLabel("");
+	private JLabel SecondPlayerlabel = new JLabel("");
+	static JLabel Resultlabel = new JLabel("Result: ");
 	
+	Gener First = new Gener();
+	Gener2 Second = new Gener2();
+	CheckPlayerNum Check = new CheckPlayerNum(First, Second);
 	
 
 	
@@ -28,10 +28,13 @@ public class KostiGUI extends JFrame {
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	    Container container = this.getContentPane();
-	    container.setLayout(new GridLayout(3,2,2,2));
-	    container.add(FirtPlayerlabel);
+	    container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+	    container.add(FirstPlayerInfolabel);
+	    container.add(SecondPlayerInfolabel);
+	    container.add(FirstPlayerlabel);
 	    container.add(SecondPlayerlabel);
-//	    container.add(Resultlabel);
+	    container.add(Resultlabel);
+
 
 
 
@@ -47,28 +50,35 @@ public class KostiGUI extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			
 			
+			Check.Kontrol();
 
-
+/*
 				if (num1 < num2) {
 					System.out.println("Second player win!");
 					score[1]++;
+					String result = "Second player win " + "GAME SCORE " + score[0] + ":" + score[1];
+					Resultlabel.setText(result);
 					System.out.println("GAME SCORE " + score[0] + ":" + score[1]);
 				}
 
 				else if (num1 > num2) {
 					System.out.println("First player win!");
 					score[0]++;
+					String result = "First player win! " + " GAME SCORE " + score[0] + ":" + score[1];
+					Resultlabel.setText(result);
 					System.out.println("GAME SCORE " + score[0] + ":" + score[1]);
 
 
 				} else {
 					System.out.println("DRAW!");
+					String result = "DRAW! " + "GAME SCORE " + score[0] + ":" + score[1];
+					Resultlabel.setText(result);
 					System.out.println("GAME SCORE " + score[0] + ":" + score[1]);
 					
 				}
 
 				return;
-			
+	*/		
 			
 		}
 	}
@@ -76,11 +86,10 @@ public class KostiGUI extends JFrame {
 	class ButtonEventListener2 implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			
-			Random rand2 = new Random();
-			num2 = rand2.nextInt(7) + 1;
-			String text = "The numbers of 2-st player: " + num2;
+
+			Second.rand3();
+			String text = "" + Second;
 			SecondPlayerlabel.setText(text);
-			System.out.println("The numbers of 2-st player:" + num2);
 			
 		}
 	}
@@ -88,13 +97,17 @@ public class KostiGUI extends JFrame {
 	class ButtonEventListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			
-			Random rand = new Random();
-			num1 = rand.nextInt(7) + 1;
-			String text = "The numbers of 1-st player: " + num1;
-			FirtPlayerlabel.setText(text);
-			System.out.println("The numbers of 1-st player:" + num1);
+			
+
+			First.rand1();
+			String text = "" + First;
+			FirstPlayerlabel.setText(text);
+
 			
 		}
+
+
+		
 	}
 
 	public static void main(String[] args) {

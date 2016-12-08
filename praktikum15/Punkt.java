@@ -7,7 +7,7 @@ public class Punkt extends Object {
 	public Punkt(int x, int y){
 	
 	this.x = x;
-	this.y =y;
+	this.y = y;
 	}
 	
 	@Override
