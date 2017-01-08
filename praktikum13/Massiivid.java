@@ -16,11 +16,11 @@ public class Massiivid {
 
 	//	tryki(arvud);
 	//	tryki(neo);
-	//	tryki(ridadeSummad(neo));
+		tryki(ridadeSummad(neo));
 	//	System.out.println(peaDiagonaaliSumma(neo));
-		System.out.println(peaDiagonaaliSummaEfektiivsemalt(neo));
-		System.out.println(korvalDiagonaaliSummaEfektiivsemalt(neo));
-		tryki(ridadeMaksimumid(neo));
+	//	System.out.println(peaDiagonaaliSummaEfektiivsemalt(neo));
+	//	System.out.println(korvalDiagonaaliSummaEfektiivsemalt(neo));
+	//	tryki(ridadeMaksimumid(neo));
 	}
 	
 	/*

@@ -31,10 +31,11 @@ public class PudeliHari extends Applet {
         // Joonistame
         g.setColor(Color.black);
 
-        for (t = -Math.PI; t < Math.PI; t = t + Math.PI / 16) {
+        for (t = -Math.PI; t < Math.PI; t = t + Math.PI / 1.5) {
             x = (int) (r * Math.cos(t) + x0);
             y = (int) (r * Math.sin(t) + y0);
             g.drawLine(x0, y0, x, y);
+            g.fillOval(x0-r/2, y0-r/2, r, r);
         }
     }
 }

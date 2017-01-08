@@ -8,8 +8,7 @@ public class Asendamine {
 		
 		
 		System.out.println("Palun sisesta text." + TextIO.getlnString());
-		System.out.println("Kõik 'a' => '_' :" 
-		+ TextIO.getlnString().replace('a', '_'));
+		System.out.println("Kõik 'a' => '_' :"  + TextIO.getlnString().replace('a', '_'));
 
 	}
 

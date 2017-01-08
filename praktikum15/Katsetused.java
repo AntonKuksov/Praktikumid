@@ -2,7 +2,7 @@ package praktikum15;
 
 import kodutoo.CheckPlayerNum;
 import kodutoo.Gener;
-import kodutoo.Gener2;
+
 
 public class Katsetused {
 
@@ -35,12 +35,14 @@ public class Katsetused {
 		First.rand1();
 //		First.rand2();
 		
-		Gener2 Second = new Gener2();
-		Second.rand3();
+//		Gener2 Second = new Gener2();
+//		Second.rand3();
 //		Second.rand4();
+		Gener Second = new Gener();
+		Second.rand1();
 		
 		CheckPlayerNum Check = new CheckPlayerNum(First, Second);
-	//	Check.Kontrol();
+		Check.Kontrol();
 		Check.Score();
 		
 	}
